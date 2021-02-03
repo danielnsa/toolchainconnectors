@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title="ToolChain Reader v1.0" icon-name="custom:custom57">
+        <div class="slds-var-m-around_medium">
+            <lightning-layout
+                vertical-align="end"
+                class="slds-var-m-bottom_small">
+                <lightning-layout-item flexibility="grow">
+                    <lightning-input
+                        type="search"
+                        onchange={handleGetRecordbyId}
+                        label="Search VeChain ID"
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-var-p-left_xx-small">
+                    <lightning-button
+                        label="Search"
+                        onclick={handleGetRecordfromVET}
+                    ></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+
+        <template if:true={retrievedSKU}> 
+            <div style="font-size: 14px"><h1><b>Retrieved VeChain Data:</b> </h1></div><br/>   
+                <lightning-carousel>
+                    <lightning-carousel-image
+                        src={retrievedSKU.productimage}
+                        header={retrievedSKU.productname}
+                        description={retrievedSKU.description}
+                        href="">
+                    </lightning-carousel-image>
+                </lightning-carousel>      
+        </template>
+
+        <template if:true={retrievedTrackData}>
+            <lightning-accordion class="resp-accordion"
+                allow-multiple-sections-open>
+                    <div>
+                        <div class="slds-border_top"></div> <br>       
+                        <div style="font-size: 16px"><h1><b>Historical tracking data for this product:</b> </h1></div><br/>   
+                    </div>
+                <ul>
+                    <template for:each={retrievedTrackData} for:item="trackData">
+                        <li key={trackData.trackNo}>
+                            <lightning-accordion-section name='{trackData.trackNo}' label='{trackData.timeStamp}'>
+                                <div class="slds-p-left_large">
+                                    <p><b>Timestamp:</b> {trackData.timeStamp}</p>
+                                    <p><b>Description:</b> {trackData.name}</p>
+                                    <p><b>Data ViD:</b> {trackData.dataVid}</p>
+                                </div>
+                            </lightning-accordion-section>
+                        </li>
+                    </template>
+                </ul>
+            </lightning-accordion>
+        </template>
+
+    </div>
+    </lightning-card>
+    
+</template>
