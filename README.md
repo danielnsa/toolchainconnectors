@@ -5,7 +5,7 @@ Demo connector build to enable Salesforce CRM to retrieve data stored on VeChain
 ## What is included?
 
 1) LWC connector reading directly from ToolChain without storing any data on Salesforce
-2) LWC, APEX class and custom objects to read and store data from ToolChain on Salesforce 
+2) LWC, APEX class and custom objects to read and write data from ToolChain on Salesforce 
 
 ## How to install?
 
