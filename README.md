@@ -11,13 +11,14 @@ Demo connector build to enable Salesforce CRM to retrieve data stored on VeChain
 
 1) Test classes for Apex
 2) Support for any ToolChain
-3) Configuration data, specifically the Custom Settings 
+3) Configuration data, specifically the Custom Settings, Connected App settings and Process Builder Automations
 
 ## How to install?
 
 1) Deploy LWCs, Objects and Apex on SF instance
 2) Configure Remote Site and CSP settings to enable connection to https://v.vechain.com
-3) Custom Settings, specifically to make the writing part more configurable
+3) Configure Process Builder Automation for calling Custom Apex when a new Track Info record is created, plus a queued 2nd call to process the results
+5) Custom Settings, specifically to make the writing part more configurable
 
 ## Useful reference links
 
